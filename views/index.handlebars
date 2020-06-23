@@ -1,0 +1,60 @@
+<div class="container">
+    <div>
+        <div class="divBlock">
+            <h1 class="text-center">Eat Da Burger!</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h3>Enter the burger information here and it will be ready quickly!</h3>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <form class="create-form justify-content-center">
+
+            <div class="form-group">
+                <div class="row">
+                    <textarea class="form-control" cols="30" type="text" name="burger" id="newB"></textarea>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <button class="btn btn-success" type="submit">Make my Burger Ready!</button>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="divBlock2">
+        <div class="row">
+            <div class="col-md-8">
+                <div>
+                    <h2>Ready to Devour Burgers are here!</h2>
+                </div>
+                <ul>
+                    {{#each burgers}}
+                    {{#unless devoured}}
+                    <li>
+                        <p> {{id}} . {{burger_name}} </p>
+
+                        <button class="btn btn-warning devour" data-id="{{id}}" data-nowdevoured="true">Devour
+                            it!</button>
+
+                    </li>
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <h2>They are perfect:</h2>
+                <ul>
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    <li>
+                        <p> {{id}} .{{burger_name}} </p>
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>

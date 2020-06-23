@@ -8,10 +8,16 @@ var burger = {
     },
 
     insertOne: function (column, values, cb) {
-        orm.insertOne("burgers", columnValues, condition, function (res) {
+        orm.insertOne("burgers", column, values, function (res) {
+            cb(res);
+        });
+    },
+
+    updateOne: function (columnValues, condition, cb) {
+        orm.updateOne("burgers", columnValues, condition, function (res) {
             cb(res);
         });
     }
 };
 
-module.exports.burger;
+module.exports = burger;
